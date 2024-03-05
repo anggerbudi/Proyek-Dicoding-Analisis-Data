@@ -4,7 +4,10 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-hour_dataset = pd.read_csv('../data/hour.csv')
+if pd.read_csv('../data/hour.csv').empty:
+    hour_dataset = pd.read_csv('https://raw.githubusercontent.com/martinusangger/bike-sharing-dataset/main/data/hour.csv')
+else:
+    hour_dataset = pd.read_csv('../data/hour.csv')
 
 dataset_2011 = hour_dataset[hour_dataset['yr'] == 0]
 dataset_2012 = hour_dataset[hour_dataset['yr'] == 1]
