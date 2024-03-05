@@ -4,14 +4,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-try:
-    hour_dataset = pd.read_csv('../data/hour.csv')
-    if hour_dataset.empty:
-        raise ValueError("The local CSV file is empty.")
-
-except (FileNotFoundError, pd.errors.EmptyDataError, ValueError):
-    print("Local CSV file not found or empty. Reading from URL...")
-    hour_dataset = pd.read_csv('https://raw.githubusercontent.com/martinusangger/bike-sharing-dataset/main/data/hour.csv')
+hour_dataset = pd.read_csv('hour.csv')
 
 dataset_2011 = hour_dataset[hour_dataset['yr'] == 0]
 dataset_2012 = hour_dataset[hour_dataset['yr'] == 1]
