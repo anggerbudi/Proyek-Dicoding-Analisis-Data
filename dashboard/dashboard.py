@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-
 hour_dataset = pd.read_csv('../data/hour.csv')
 
 dataset_2011 = hour_dataset[hour_dataset['yr'] == 0]
@@ -66,7 +65,7 @@ def trend_plot(year):
     plt.yticks(np.arange(0, 350, 25))
     plt.title('Rata-rata Sewa Sepeda Setiap Bulan di Tahun' + title_list[year])
     st.pyplot(fig)
-    
+
 
 def hour_plot(year):
     grouped_by_hour = dataset_list[year].groupby('hr')['cnt'].mean().reset_index()
