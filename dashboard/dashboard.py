@@ -1,9 +1,11 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 import pandas as pd
 import seaborn as sns
 
+print(os.getcwd())
 hour_dataset = pd.read_csv('../data/hour.csv')
 
 dataset_2011 = hour_dataset[hour_dataset['yr'] == 0]
