@@ -5,8 +5,13 @@ import os
 import pandas as pd
 import seaborn as sns
 
-path = os.getcwd()
-hour_dataset = pd.read_csv(path + '/data/hour.csv')
+current_script_directory = os.path.dirname(os.path.abspath(__file__))
+while not current_script_directory.endswith(os.path.sep):
+    current_script_directory = os.path.dirname(current_script_directory)
+project_root = current_script_directory
+data_path = os.path.join(project_root, 'data', 'hour.csv')
+
+hour_dataset = pd.read_csv(data_path)
 
 dataset_2011 = hour_dataset[hour_dataset['yr'] == 0]
 dataset_2012 = hour_dataset[hour_dataset['yr'] == 1]
